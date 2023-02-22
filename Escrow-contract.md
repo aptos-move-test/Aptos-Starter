@@ -1,4 +1,5 @@
 # Escrow-Contract
+##Creating Vesting function
 
 ```rust
 public entry fun create_vesting<CoinType>(
