@@ -21,7 +21,7 @@ It defines a public function called **`create_vesting`**, which anyone can call 
 - **`seeds`**: A vector of bytes that will be used to create a unique identifier.
 
 ```rust
-				let account_addr = signer::address_of(account);
+	let account_addr = signer::address_of(account);
         let (vesting, vesting_cap) = account::create_resource_account(account, seeds); //resource account
         let vesting_address = signer::address_of(&vesting);
         if (!exists<VestingCap>(account_addr)) {
@@ -38,7 +38,7 @@ The address of the newly created resource account is retrieved using `signer::ad
 Finally, add the address of the newly created vesting account to the vesting map with `simple_map::add(&mut maps.vestingMap, seed, vesting_address).`
 
 ```rust
-				let vesting_signer_from_cap = account::create_signer_with_capability(&vesting_cap);
+	let vesting_signer_from_cap = account::create_signer_with_capability(&vesting_cap);
         let length_of_schedule =  vector::length(&release_amounts);
         let length_of_times = vector::length(&release_times);
         assert!(length_of_schedule==length_of_times,ENO_INSUFFICIENT_FUND);
@@ -66,7 +66,7 @@ After the loop, an assertion is made to see if `total_amount_required` equals th
 Typically, this block of code is used to check that the `release_amounts` and `total_amount` inputs match each other. Otherwise, an error is raised, and the function exits without changing any data.
 
 ```rust
-let released_amount=0;
+	let released_amount=0;
         let coin_address = coin_address<CoinType>();
         move_to(&vesting_signer_from_cap, VestingSchedule{
         sender:account_addr,
